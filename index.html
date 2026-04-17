@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jade Rancourt — Bilingual Operations & Product Leader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EE;
+    --cream-dark: #EDE8E0;
+    --charcoal: #2C2C2C;
+    --charcoal-light: #4A4A4A;
+    --gold: #B8965A;
+    --gold-light: #D4AF7A;
+    --gold-pale: #F0E6D3;
+    --white: #FFFFFF;
+    --border: rgba(184,150,90,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(247,243,238,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── TICKER ── */
+  .ticker-wrap {
+    background: var(--charcoal);
+    color: var(--gold-light);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 64px;
+  }
+
+  .ticker-track {
+    display: inline-block;
+    animation: ticker 28s linear infinite;
+  }
+
+  .ticker-track span { margin: 0 2.5rem; }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 7rem 4rem 5rem;
+    gap: 4rem;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--cream-dark) 0%, var(--gold-pale) 100%);
+    z-index: 0;
+  }
+
+  .hero-text { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 0.25rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--charcoal-light);
+    margin: 1.75rem 0 2.5rem;
+    max-width: 440px;
+    line-height: 1.8;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .badge {
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    border-radius: 2px;
+  }
+
+  .hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .btn-primary {
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 0.85rem 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.25s, color 0.25s;
+  }
+
+  .btn-primary:hover { background: var(--gold); color: var(--white); }
+
+  .btn-ghost {
+    color: var(--charcoal-light);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--gold); }
+
+  /* Hero visual panel */
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 2px 20px rgba(44,44,44,0.04);
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .stat-card:nth-child(1) { animation-delay: 0.1s; }
+  .stat-card:nth-child(2) { animation-delay: 0.25s; margin-left: 2rem; }
+  .stat-card:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 80px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    line-height: 1.5;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+
+  .section-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--charcoal);
+    margin-bottom: 3rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--charcoal);
+    color: var(--cream);
+  }
+
+  #about .section-title { color: var(--cream); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    color: rgba(247,243,238,0.75);
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+
+  .about-text p strong {
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+
+  .about-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .pillar {
+    border: 1px solid rgba(184,150,90,0.3);
+    border-radius: 4px;
+    padding: 1.75rem;
+    transition: border-color 0.25s, background 0.25s;
+  }
+
+  .pillar:hover {
+    border-color: var(--gold);
+    background: rgba(184,150,90,0.05);
+  }
+
+  .pillar-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .pillar p {
+    font-size: 0.78rem;
+    color: rgba(247,243,238,0.6);
+    line-height: 1.65;
+    margin: 0 !important;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--cream); }
+
+  .timeline {
+    position: relative;
+    max-width: 860px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .job {
+    padding: 0 0 3.5rem 2.5rem;
+    position: relative;
+    cursor: default;
+  }
+
+  .job::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 1px var(--gold);
+    transition: transform 0.2s;
+  }
+
+  .job:hover::before { transform: scale(1.4); }
+
+  .job-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .job-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .job-period {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .job-title {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    margin-bottom: 1rem;
+  }
+
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .job-bullets li {
+    font-size: 0.875rem;
+    color: var(--charcoal-light);
+    line-height: 1.7;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+
+  .job-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+    top: 0.1rem;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--cream-dark); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: box-shadow 0.25s, border-color 0.25s;
+  }
+
+  .skill-group:hover {
+    box-shadow: 0 4px 24px rgba(184,150,90,0.1);
+    border-color: var(--gold);
+  }
+
+  .skill-group-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
+    color: var(--charcoal-light);
+    border-radius: 2px;
+  }
+
+  /* ── AI SKILLS ── */
+  #ai-skills { background: var(--charcoal); }
+
+  #ai-skills .section-title { color: var(--cream); }
+  #ai-skills .section-eyebrow { }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .ai-card {
+    border: 1px solid rgba(184,150,90,0.25);
+    border-radius: 4px;
+    padding: 2rem 2.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, background 0.25s;
+  }
+
+  .ai-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .ai-card:hover {
+    border-color: var(--gold);
+    background: rgba(184,150,90,0.04);
+  }
+
+  .ai-card:hover::before { opacity: 1; }
+
+  .ai-card-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .ai-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+
+  .ai-card p {
+    font-size: 0.83rem;
+    color: rgba(247,243,238,0.65);
+    line-height: 1.75;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--cream); }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--white);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  .project-card:hover {
+    box-shadow: 0 8px 40px rgba(44,44,44,0.1);
+    transform: translateY(-3px);
+  }
+
+  .project-header {
+    background: var(--charcoal);
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .project-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgba(184,150,90,0.2);
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    line-height: 1;
+  }
+
+  .project-status {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .project-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.2;
+  }
+
+  .project-body { padding: 2rem 2.5rem; }
+
+  .project-body p {
+    font-size: 0.875rem;
+    color: var(--charcoal-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project-tag {
+    background: var(--gold-pale);
+    border: 1px solid rgba(184,150,90,0.3);
+    padding: 0.25rem 0.65rem;
+    font-size: 0.67rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    border-radius: 2px;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--cream-dark);
+    text-align: center;
+    padding: 7rem 4rem;
+  }
+
+  #contact .section-eyebrow { justify-content: center; }
+  #contact .section-eyebrow::before { display: none; }
+
+  #contact .section-title { text-align: center; }
+
+  .contact-sub {
+    font-size: 0.95rem;
+    color: var(--charcoal-light);
+    max-width: 480px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+  }
+
+  .contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .contact-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .contact-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--charcoal);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-value:hover { color: var(--gold); }
+
+  .contact-langs {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: rgba(247,243,238,0.5);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-note {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: rgba(247,243,238,0.3);
+    text-transform: uppercase;
+  }
+
+  /* ── DIVIDER ── */
+  .gold-divider {
+    width: 3rem;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 3rem;
+  }
+
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--charcoal);
+    transition: transform 0.3s, opacity 0.3s;
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: rgba(247,243,238,0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+    flex-direction: column;
+    padding: 1.5rem 2rem 2rem;
+    gap: 1.25rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 3rem; }
+    .hero::before { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-pillars { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .ai-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#top" class="nav-logo">Jade Rancourt</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#ai-skills">AI</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#ai-skills" class="mobile-link">AI Skills</a>
+  <a href="#projects" class="mobile-link">Projects</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Close menu when any mobile link is clicked
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>Bilingual Operations Leader</span>
+    <span>·</span>
+    <span>Product Strategy</span>
+    <span>·</span>
+    <span>AI-Integrated Workflows</span>
+    <span>·</span>
+    <span>Healthcare & Compliance</span>
+    <span>·</span>
+    <span>Toronto, ON</span>
+    <span>·</span>
+    <span>English & French</span>
+    <span>·</span>
+    <span>End-to-End Project Delivery</span>
+    <span>·</span>
+    <span>Bilingual Operations Leader</span>
+    <span>·</span>
+    <span>Product Strategy</span>
+    <span>·</span>
+    <span>AI-Integrated Workflows</span>
+    <span>·</span>
+    <span>Healthcare & Compliance</span>
+    <span>·</span>
+    <span>Toronto, ON</span>
+    <span>·</span>
+    <span>English & French</span>
+    <span>·</span>
+    <span>End-to-End Project Delivery</span>
+    <span>·</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Available for Opportunities</div>
+    <h1>
+      Operations.<br>
+      Strategy.<br>
+      <em>Execution.</em>
+    </h1>
+    <p class="hero-sub">
+      Bilingual project leader and entrepreneur with a track record of building high-impact operations — across healthcare, SaaS, financial services, and construction — from the ground up.
+    </p>
+    <div class="hero-badges">
+      <span class="badge">Toronto, ON</span>
+      <span class="badge">English · French</span>
+      <span class="badge">PHIPA / PIPEDA</span>
+      <span class="badge">AWS · Python · API</span>
+      <span class="badge">Founder-Operator</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="stat-card">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Industries Led<br>Across Project Lifecycles</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Ventures Founded<br>& Operated</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Bilingual Delivery<br>English & French</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-eyebrow">About</div>
+      <h2 class="section-title">Built for complexity.<br><em>Wired for execution.</em></h2>
+      <p>
+        I'm a bilingual entrepreneur and operations leader who has spent her career solving the problems most professionals hand off to someone else. From building compliant healthcare workflows from scratch to architecting a multi-phase SaaS platform in a federally regulated industry — I don't just manage projects, I <strong>own outcomes</strong>.
+      </p>
+      <p>
+        My background spans healthcare administration, enterprise project delivery, financial services compliance, and founding two ventures of my own. I bring the rare combination of <strong>strategic clarity, technical literacy, and hands-on execution</strong> that growing organizations need at a critical stage.
+      </p>
+      <p>
+        Based in Toronto. Fluent in English and French. Always thinking three steps ahead.
+      </p>
+    </div>
+    <div class="about-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">⚙️</div>
+        <h4>Systems Thinking</h4>
+        <p>I design operations that scale — SOPs, automations, and reporting structures that work without constant oversight.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🏥</div>
+        <h4>Healthcare Fluency</h4>
+        <p>Deep, real-world experience in PHIPA-compliant medical environments — not theoretical, operational.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🤖</div>
+        <h4>AI-Native Operator</h4>
+        <p>I integrate AI tools into real workflows — not as a novelty, but as a multiplier on output and efficiency.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌐</div>
+        <h4>Bilingual Leadership</h4>
+        <p>Native-level English and French — able to lead teams, manage clients, and deliver at the highest standard in both.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-eyebrow">Experience</div>
+  <h2 class="section-title">A career defined by<br><em>high-stakes delivery.</em></h2>
+
+  <div class="timeline">
+
+    <div class="job">
+      <div class="job-meta">
+        <span class="job-company">Pharmalink</span>
+        <span class="job-period">2025 — Present</span>
+      </div>
+      <div class="job-title">Project Manager & Software Development Lead · Toronto, ON</div>
+      <ul class="job-bullets">
+        <li>Directing the full product lifecycle of a proprietary B2B SaaS platform targeting a multi-million dollar underserved market — owning scope, architecture, milestones, and production deployment from zero.</li>
+        <li>Leading all technical planning across Python, RESTful APIs, and AWS cloud infrastructure (EC2, S3, Lambda, RDS), ensuring scalable, compliant systems aligned with long-term business strategy.</li>
+        <li>Orchestrating third-party API integrations and AI-powered automation workflows, dramatically reducing operational overhead while increasing platform reliability and throughput.</li>
+        <li>Established and manages a full CI/CD pipeline via GitHub — overseeing version control, sprint planning, and iterative release cycles that maintain delivery velocity without sacrificing code quality.</li>
+        <li>Driving stakeholder engagement through market research, competitive analysis, and requirements validation — translating complex business needs into precise technical specifications and executable project plans.</li>
+        <li>Proactively monitors risk exposure, budget forecasts, and resource allocation to consistently deliver on-time and on-budget within a heavily regulated industry environment.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">
+        <span class="job-company">Champagne Hyperbarics</span>
+        <span class="job-period">2025</span>
+      </div>
+      <div class="job-title">Project Manager · Toronto, ON</div>
+      <ul class="job-bullets">
+        <li>Restructured daily operational workflows across a hyperbaric medicine clinic, introducing project timelines, resource plans, and performance benchmarks that measurably improved patient throughput and scheduling accuracy.</li>
+        <li>Served as the single point of coordination between clinical leadership, patients, and administrative staff — eliminating communication gaps and driving faster resolution of operational issues.</li>
+        <li>Spearheaded a clinic-wide digital transformation initiative, deploying automation tools and workflow enhancements that eliminated scheduling conflicts and raised operational efficiency by a significant margin.</li>
+        <li>Managed all billing, invoicing, insurance documentation, and medical records in full PHIPA compliance, maintaining an audit-ready standard at all times.</li>
+        <li>Produced executive-level KPI reports and data-driven operational summaries that empowered clinical leadership to make faster, more confident decisions.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">
+        <span class="job-company">Henley Gardens Pharmacy</span>
+        <span class="job-period">2025</span>
+      </div>
+      <div class="job-title">Project Manager & Operations Manager · Toronto, ON</div>
+      <ul class="job-bullets">
+        <li>Directed end-to-end pharmacy operations, unifying clinical, administrative, and patient-care workflows into a single, seamless execution model that sustained daily performance under high-volume conditions.</li>
+        <li>Enforced full regulatory compliance across dispensing, verification, and documentation functions in alignment with provincial pharmacy standards and corporate governance requirements.</li>
+        <li>Led resource planning, staff scheduling, and performance management with the discipline of a regulated, high-accountability environment — driving measurable improvements in staff output and morale.</li>
+        <li>Coordinated cross-functional communication between pharmacists, healthcare providers, and patients, maintaining continuity of care and hitting all project deliverables without exception.</li>
+        <li>Managed inventory control, operational budgets, and workflow optimization initiatives — delivering quantifiable gains in efficiency and profitability quarter over quarter.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">
+        <span class="job-company">Firetronics 2000 Inc.</span>
+        <span class="job-period">Oct 2024 — Jun 2025</span>
+      </div>
+      <div class="job-title">Project Coordinator · Toronto, ON</div>
+      <ul class="job-bullets">
+        <li>Provided high-level administrative and project coordination support to senior leadership, managing competing priorities across concurrent initiatives with precision and zero missed deadlines.</li>
+        <li>Designed and maintained executive dashboards, pivot table models, and automated reporting tools in advanced Excel — enabling real-time visibility into project milestones, KPIs, and compliance metrics.</li>
+        <li>Managed high-volume data reporting and documentation workflows, maintaining a standard of accuracy and confidentiality that held up under regulatory scrutiny.</li>
+        <li>Coordinated interdepartmental communications and action items, ensuring operational continuity and maintaining momentum across all active project workstreams.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">
+        <span class="job-company">Scotiabank</span>
+        <span class="job-period">Apr 2024 — Sep 2024</span>
+      </div>
+      <div class="job-title">Project Manager & Client Services Specialist · Toronto, ON</div>
+      <ul class="job-bullets">
+        <li>Led a company-wide internal branding initiative from concept through completion — managing cross-departmental stakeholders, setting and delivering against milestones, and reporting progress at the executive level throughout.</li>
+        <li>Consistently ranked among top performers for bilingual client satisfaction and quality metrics while managing high-volume client engagement without sacrificing service standards.</li>
+        <li>Identified systemic process inefficiencies and developed actionable improvement plans that were implemented organizationally — improving both service delivery speed and compliance adherence.</li>
+        <li>Maintained strict adherence to regulatory compliance, confidentiality protocols, and ethical standards across all client-facing and internal project workstreams simultaneously.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">
+        <span class="job-company">Rancourt Roofing</span>
+        <span class="job-period">Jul 2020 — Mar 2024</span>
+      </div>
+      <div class="job-title">Project Manager · Ontario</div>
+      <ul class="job-bullets">
+        <li>Managed multiple concurrent construction projects end-to-end — overseeing scope definition, scheduling, resource allocation, and budget reconciliation across all active engagements simultaneously.</li>
+        <li>Directed all financial administration including purchase orders, invoicing, expense tracking, and cost forecasting, maintaining on-time and on-budget delivery across the entire project portfolio.</li>
+        <li>Coordinated interdepartmental communications and stakeholder reporting, maintaining full alignment across field teams, vendors, and clients throughout every project lifecycle.</li>
+        <li>Led digital marketing and web presence strategy to support brand growth, lead generation, and business development, contributing directly to revenue growth over the four-year period.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-meta">
+        <span class="job-company">Lumière Self Care</span>
+        <span class="job-period">2022 — 2024</span>
+      </div>
+      <div class="job-title">Project Manager & Co-Founder · Ontario</div>
+      <ul class="job-bullets">
+        <li>Co-founded and scaled a consumer brand from concept to market — defining business strategy, product roadmaps, and go-to-market timelines that kept the venture aligned and moving at pace.</li>
+        <li>Developed and executed branding, marketing, and customer acquisition strategies across creative, logistics, and sales workstreams — managing all deliverables personally.</li>
+        <li>Built performance tracking dashboards and managed inventory logistics, using data-driven insights to guide every major operational decision and optimize resource allocation across the business.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-eyebrow">Core Competencies</div>
+  <h2 class="section-title">The toolkit behind<br><em>every outcome.</em></h2>
+
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">Project Management</div>
+      <div class="skill-tags">
+        <span class="skill-tag">End-to-End Lifecycle</span>
+        <span class="skill-tag">Agile</span>
+        <span class="skill-tag">Waterfall</span>
+        <span class="skill-tag">Scope Management</span>
+        <span class="skill-tag">Risk Mitigation</span>
+        <span class="skill-tag">Resource Allocation</span>
+        <span class="skill-tag">Stakeholder Reporting</span>
+        <span class="skill-tag">Change Management</span>
+        <span class="skill-tag">Process Optimization</span>
+        <span class="skill-tag">Jira</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Technology & Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python Scripting</span>
+        <span class="skill-tag">RESTful API</span>
+        <span class="skill-tag">AWS (EC2, S3, Lambda, RDS)</span>
+        <span class="skill-tag">CI/CD Pipelines</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">LLM Integration</span>
+        <span class="skill-tag">AI Workflow Automation</span>
+        <span class="skill-tag">Advanced Excel</span>
+        <span class="skill-tag">Executive Dashboards</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Operations & Compliance</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PHIPA</span>
+        <span class="skill-tag">HIPAA</span>
+        <span class="skill-tag">PIPEDA</span>
+        <span class="skill-tag">Healthcare Administration</span>
+        <span class="skill-tag">SOP Development</span>
+        <span class="skill-tag">Billing & Documentation</span>
+        <span class="skill-tag">Audit Readiness</span>
+        <span class="skill-tag">Regulatory Governance</span>
+        <span class="skill-tag">Quality Assurance</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Leadership & Communication</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Bilingual EN/FR</span>
+        <span class="skill-tag">Executive Reporting</span>
+        <span class="skill-tag">Cross-Functional Leadership</span>
+        <span class="skill-tag">Client Relations</span>
+        <span class="skill-tag">Vendor Management</span>
+        <span class="skill-tag">Training & Mentorship</span>
+        <span class="skill-tag">Financial Administration</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Industry Experience</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Healthcare / Medspa</span>
+        <span class="skill-tag">Pharmacy Operations</span>
+        <span class="skill-tag">SaaS / Software Development</span>
+        <span class="skill-tag">Financial Services</span>
+        <span class="skill-tag">Construction</span>
+        <span class="skill-tag">Consumer Brand</span>
+        <span class="skill-tag">Life Safety / Fire Protection</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Certifications</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PM Foundations</span>
+        <span class="skill-tag">PM Plan Development</span>
+        <span class="skill-tag">Business Analysis</span>
+        <span class="skill-tag">AML & ATF Risk</span>
+        <span class="skill-tag">Global Sanctions</span>
+        <span class="skill-tag">Fraud & Cybersecurity</span>
+        <span class="skill-tag">CASL Compliance</span>
+        <span class="skill-tag">AWS Cloud (In Progress)</span>
+        <span class="skill-tag">AI Foundations (In Progress)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SKILLS -->
+<section id="ai-skills">
+  <div class="section-eyebrow">AI Capabilities</div>
+  <h2 class="section-title">Not just AI-aware.<br><em>AI-operational.</em></h2>
+
+  <div class="ai-grid">
+    <div class="ai-card">
+      <div class="ai-card-tag">Workflow Integration</div>
+      <h4>LLM-Powered Business Automation</h4>
+      <p>Designs and implements LLM-integrated workflows that replace manual, repetitive processes — from client communications to data processing pipelines — cutting operational overhead without sacrificing quality or compliance.</p>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-tag">Prompt Engineering</div>
+      <h4>Precision Prompt Architecture</h4>
+      <p>Advanced prompt engineering across GPT, Claude, and Gemini — including multi-shot prompting, system instruction design, structured output generation, and custom model fine-tuning for repeatable, production-ready outputs.</p>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-tag">Product Development</div>
+      <h4>AI-Native SaaS Product Design</h4>
+      <p>Currently leading development of a B2B SaaS platform with AI-driven matching logic, automated fraud detection, and intelligent inventory management — built for regulatory compliance in a federally governed industry.</p>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-tag">Creative & Brand</div>
+      <h4>AI-Assisted Creative Direction</h4>
+      <p>Leverages generative AI tools — including Higgsfield AI, Midjourney, and Claude — for brand asset creation, content strategy, and visual identity development. Skilled at translating brand vision into precise, repeatable AI outputs.</p>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-tag">Operations & Analysis</div>
+      <h4>Data-Driven Decision Automation</h4>
+      <p>Applies AI-assisted analytics to operational reporting — building dashboards, automated summaries, and insight pipelines that surface actionable intelligence for leadership without requiring manual data interpretation.</p>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-tag">Tools & Platforms</div>
+      <h4>AI Ecosystem Proficiency</h4>
+      <p>Fluent across the modern AI stack: Claude, ChatGPT, Gemini, Higgsfield AI, Midjourney, Notion AI, GitHub Copilot, and custom API integrations. Rapidly evaluates and deploys new tools to maintain a competitive operational edge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-eyebrow">Ventures & Projects</div>
+  <h2 class="section-title">Building what<br><em>didn't exist yet.</em></h2>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-number">01</div>
+        <div class="project-status">● Active — Accepting Clients</div>
+        <div class="project-name">Her Desk Co.</div>
+      </div>
+      <div class="project-body">
+        <p>A remote back-office support agency purpose-built for medical aesthetic clinics and medspas across Canada. Offers bilingual administrative and operational support — from patient scheduling and invoicing to CRM management and SOP documentation — at a fraction of the cost of a full-time hire.</p>
+        <p>Built from the ground up: full brand identity, tiered pricing model, six operational SOPs, a Notion CRM system, Canadian healthcare privacy compliance (PHIPA, PIPEDA), and a 48-hour onboarding guarantee.</p>
+        <div class="project-tags">
+          <span class="project-tag">Healthcare Admin</span>
+          <span class="project-tag">PHIPA / PIPEDA</span>
+          <span class="project-tag">Bilingual</span>
+          <span class="project-tag">Canada-Wide</span>
+          <span class="project-tag">Founder-Led</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-number">02</div>
+        <div class="project-status">● Completed — 2022–2024</div>
+        <div class="project-name">Lumière Self Care</div>
+      </div>
+      <div class="project-body">
+        <p>Co-founded and operated a consumer wellness brand from inception to market. Managed brand strategy, product development, go-to-market execution, and customer acquisition — running all creative, logistics, and sales workstreams simultaneously as a founding operator.</p>
+        <div class="project-tags">
+          <span class="project-tag">Consumer Brand</span>
+          <span class="project-tag">Go-To-Market</span>
+          <span class="project-tag">Co-Founder</span>
+          <span class="project-tag">Operations</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-number">03</div>
+        <div class="project-status">● Ongoing Support</div>
+        <div class="project-name">Rancourt Roofing — Digital & Ops</div>
+      </div>
+      <div class="project-body">
+        <p>Over four years, led the operational backbone of a roofing business — managing concurrent project portfolios, all financial administration, vendor coordination, and a full digital transformation of the company's web presence and lead generation infrastructure.</p>
+        <div class="project-tags">
+          <span class="project-tag">Construction PM</span>
+          <span class="project-tag">Digital Strategy</span>
+          <span class="project-tag">Financial Admin</span>
+          <span class="project-tag">Operations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-eyebrow">Contact</div>
+  <h2 class="section-title">Let's build something<br><em>remarkable.</em></h2>
+  <p class="contact-sub">
+    Available for full-time roles, fractional engagements, and select advisory opportunities. Reach out directly — I respond promptly.
+  </p>
+
+  <div class="contact-details">
+    <div class="contact-item">
+      <span class="contact-label">Email</span>
+      <a href="mailto:rancourtjade70@gmail.com" class="contact-value">rancourtjade70@gmail.com</a>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">Phone</span>
+      <a href="tel:6133257012" class="contact-value">613-325-7012</a>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">Location</span>
+      <span class="contact-value">Toronto, ON</span>
+    </div>
+  </div>
+
+  <div class="contact-langs">
+    <span class="badge">English — Fluent</span>
+    <span class="badge">French — Fluent</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Jade Rancourt</div>
+  <div class="footer-note">Toronto · Operations · Strategy · AI</div>
+</footer>
+
+</body>
+</html>
